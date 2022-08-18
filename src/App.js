@@ -17,6 +17,10 @@ function App() {
 
   const search = async (e) => {
     // if (e.key === 'Enter') {
+     if(query===''){
+        alert('Please enter city')
+        return false
+     } 
     const data = await fetchWeather(query)
     setWeather(data.data)
     //  setQuery('')
