@@ -1,19 +1,35 @@
-
-html, body, #root {
+html,
+body,
+#root {
   font: 0.9rem sans-serif;
   background: #0a1f44;
   color: #1e2432;
   height: 100vh;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   /* overflow: scroll; */
 }
 
-.main-container {
+.main-container-day {
   margin: 0;
   background: url('./../public/images/day.jpg');
   background-size: cover;
   background-position: center;
-  height: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 0;
+}
+
+.main-container-night {
+  margin: 0;
+  background: url('./../public/images/night.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,20 +39,32 @@ html, body, #root {
 
 
 .search {
+  width: 500px;
   outline: none;
   padding: 20px 7%;
   border-radius: 20px;
   border: none;
-  margin-bottom: 3%;
+  margin-bottom: 1%;
   background: rgba(250, 250, 250, 0.85);
+}
+
+.input-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  /* flex-wrap: wrap; */
 }
 
 .city {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
   padding: 40px 8%;
+  margin-right: 10%;
+  margin-bottom: 30px;
   border-radius: 20px;
   background: rgba(250, 250, 250, 0.85);
   box-shadow: 10px 10px 5px 0px rgba(15, 15, 15, 0.404);
@@ -48,9 +76,12 @@ p {
   letter-spacing: 0.05em;
 }
 
-.wind{
-  font-size: 1.5rem;
-  font-weight:bold
+.others {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-weight: bold;
 }
 
 .city-temp {
@@ -59,6 +90,7 @@ p {
   margin-top: 10px;
   color: #1e2432;
   text-align: center;
+  cursor: pointer;
 }
 
 .city-feels {
@@ -97,35 +129,84 @@ p {
   align-items: center;
 }
 
-.btn{
-  margin: 0 0 2rem 0;
-  width:8rem;
-  height:4rem;
+.btn {
+  /* margin: 0 0 2rem 0; */
+  width: 8rem;
+  height: 3.5rem;
   background: #000000;
-  color:#fff;
-  cursor:pointer;
+  color: #fff;
+  cursor: pointer;
   border-radius: 20px;
   font-size: large;
+  border: none;
 }
 
-.btn:hover{
-  color:rgba(250, 250, 250, 0.85);
+.btn:hover {
+  color: rgba(250, 250, 250, 0.85);
 }
 
 
 
 @media only screen and (max-width: 600px) {
   .search {
-      padding: 20px 15%;
+    /* padding: 20px 15%; */
+    width: 200px;
+    margin-bottom: 1rem;
   }
 
   .city {
-      padding: 40px 20%;
+    padding: 30px;
+    margin-right: 0;
   }
 
-  .btn{
-    width:6rem;
-    height: 4rem;
+  .btn {
+    width: 6rem;
+    height: 3rem;
     font-size: medium;
+  }
+
+  .input-wrapper {
+    flex-direction: column;
+
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .search {
+    /* padding: 20px 15%; */
+    width: 200px;
+    margin-bottom: 1rem;
+  }
+
+  .city {
+    padding: 20px;
+    margin-right: 0;
+    height:300px
+  }
+
+  .btn {
+    width: 6rem;
+    height: 3rem;
+    font-size: medium;
+  }
+   
+  .city-temp{
+    font-size: 30px;
+  }
+  .city-feels{
+    font-size: 20px;
+  }
+
+  .info{
+    margin-top: -20px;
+  }
+
+  .others{
+    font-size: 10px;
+  }
+
+  .input-wrapper {
+    flex-direction: column;
+
   }
 }
